@@ -9,7 +9,7 @@ public class Fibbonacci
 		
 		for(int i = 0; i < 32; i++)
 		{
-			System.out.println(b);
+			System.out.println("#" + (i + 1) + ": " + b);
 			
 			b += a;
 			a = b - a;
