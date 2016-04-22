@@ -1,4 +1,4 @@
-package test;
+package org.fireclaw.misc;
 
 public class Rocket
 {

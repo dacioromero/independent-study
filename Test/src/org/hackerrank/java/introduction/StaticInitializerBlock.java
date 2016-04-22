@@ -32,6 +32,7 @@ public class StaticInitializerBlock
 		if(flag)
 		{
 			int area = B * H;
+			
 			System.out.print(area);
 		}
 		
