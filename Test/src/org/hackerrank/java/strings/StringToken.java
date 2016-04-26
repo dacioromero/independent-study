@@ -8,19 +8,27 @@ public class StringToken
     {
       Scanner scanner = new Scanner(System.in);
       
-      String string = scanner.nextLine();
+      String string = scanner.nextLine().trim();              
       
       scanner.close();
       
-      String[] words = string.split("\\W+");
-      
-      int wordCount = words.length;
-    		  
-      System.out.println(wordCount);
-      
-      for(int i = 0; i < wordCount; i++) 
+      if(string.isEmpty())
       {
-    	  System.out.println(words[i]);
+    	  System.out.println(0);
+      }
+      
+      else
+      {
+	      String[] words = string.split("[^a-zA-Z]+");
+	      
+	      int wordCount = words.length;
+	    		  
+	      System.out.println(wordCount);
+	      
+	      for(int i = 0; i < wordCount; i++) 
+	      {
+	    	  System.out.println(words[i]);
+	      }
       }
     }
 }
