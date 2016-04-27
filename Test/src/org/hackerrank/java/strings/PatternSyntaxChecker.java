@@ -2,6 +2,7 @@ package org.hackerrank.java.strings;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 public class PatternSyntaxChecker
 {
@@ -20,7 +21,7 @@ public class PatternSyntaxChecker
 				System.out.println("Valid");
 			}
 			
-			catch(Exception e)
+			catch(PatternSyntaxException e)
 			{
 				System.out.println("Invalid");
 			}
