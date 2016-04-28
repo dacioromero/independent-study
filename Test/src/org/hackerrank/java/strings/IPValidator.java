@@ -21,5 +21,5 @@ class IPValidator
 
 class myRegex
 {
-	public final String pattern = "^(?:(?:[01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.){3}(?:[01]?\\d\\d?|2[0-4]\\d|25[0-5])$";
+	public final String pattern = String.format("^(?:%s\\.){3}%s$", "(?:[01]?\\d\\d?|2[0-4]\\d|25[0-5])");
 }
