@@ -20,6 +20,8 @@ public class BigDecimalSorting
 			decimals[i] = new BigDecimal(strings[i]);
 		}
 		
+		scanner.close();
+		
 		for(int i = 0; i < decimalCount; i++)
 		{
 			int largestIndex = i;
