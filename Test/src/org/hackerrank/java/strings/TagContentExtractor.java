@@ -9,8 +9,7 @@ public class TagContentExtractor
 	public static void main(String[] args)
 	{
 		Scanner scanner = new Scanner(System.in);
-		Pattern fullPattern = Pattern.compile("<([^<>]+)>[^><]+<\\/\\1>");
-		Pattern contentPattern = Pattern.compile("(?<=>)[^><]+(?=<)");
+		Pattern fullPattern = Pattern.compile("<([^<>]+)>([^<>]+)<\\/\\1>");
 		
 		for(int testcases = Integer.parseInt(scanner.nextLine()); testcases > 0; testcases--)
 		{
@@ -18,12 +17,19 @@ public class TagContentExtractor
 			
 			Matcher fullMatcher = fullPattern.matcher(line);
 			
-			if(fullMatcher.matches())
+			if(fullMatcher.find())
 			{
-				System.out.println(fullMatcher.group());
+				System.out.println(fullMatcher.group(2));
 				
-				//Matcher contentMatcher = contentPattern.matcher(fullMatcher.group());
-				//System.out.println(contentMatcher.group());
+				while(fullMatcher.find())
+				{
+					System.out.println(fullMatcher.group(2));
+				}
+			}
+			
+			else
+			{
+				System.out.println("None");
 			}
 		}
 		
