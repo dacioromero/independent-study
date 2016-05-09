@@ -1,14 +1,9 @@
 package org.mcintosh.independentstudy.evaluations;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
 
 public class Midterm 
 {
@@ -59,7 +54,7 @@ public class Midterm
 		{
 			try
 			{
-				System.out.println("Hangman");
+				System.out.println("Java Hangman");
 				System.out.println("1. New Game");
 				System.out.println("2. Quit");
 			
@@ -71,7 +66,8 @@ public class Midterm
 				System.out.println("Option must be numeric!");
 			}
 		}
-		while(option == 0);
+		
+		while(option < 1 || option > 2);
 		
 		switch(option)
 		{
@@ -87,49 +83,56 @@ public class Midterm
 	static void Game()
 	{
 		String word = words[(int)(Math.random() * (words.length - 1))];
-		StringBuilder guessRegex = new StringBuilder();
+		
+		StringBuilder charGuesses = new StringBuilder();
+		ArrayList<String> wordGuesses = new ArrayList<String>();
 		
 		boolean win = false;
 		
-		System.out.println(word.replaceAll(".", "_ "));
-		
-		for(int guessCount = word.length() * 4; guessCount > 0 && !win; guessCount--)
+		for(int guessCount = word.length() * 2; guessCount > 0 && !win; guessCount--)
 		{
+			System.out.println(word.replaceAll(charGuesses.length() > 0 ? String.format("[^%s]", charGuesses) : ".", "_"));
+			
+			
 			System.out.printf("%d guesses left%n", guessCount);
 			
 			String guess;
+			boolean guessValid = false;
 			
 			do
 			{
 				System.out.println("Enter your guess");
-				guess = scanner.next();
+				guess = scanner.next().toLowerCase();
 				
-				if(guess == word)
+				if(charGuesses.indexOf(guess) != -1 || wordGuesses.contains(guess))
 				{
-					System.out.println(word.replaceAll(".", "$0"));
-					win = true;
-					break;
+					System.out.printf("You've already guessed %s%n", guess);
+				}
+				
+				else
+				{
+					guessValid = guess.matches("[A-Za-z]+");
 				}
 			}
-			while(guess.matches("[^A-Za-z]") || guess.length() != 1 || guessRegex.indexOf(guess) != -1);
+			while(!guessValid);
 			
-			guessRegex.append(guess);
+			if(guess.length() == 1)
+			{
+				charGuesses.append(guess);
+				
+				win = word.matches(String.format("[%s]+", charGuesses));
+			}
 			
-			String revealed = word.replaceAll("[^" + guessRegex + "]", "_");
-			
-			System.out.println(revealed.replaceAll("\\B", " "));
-			
-			win = revealed == word;
+			else
+			{
+				wordGuesses.add(guess);
+				
+				win = guess.equals(word);
+			}
 		}
 		
-		System.out.println("You" + (!win ? " didn't" : "") + " win");
-	}
-	
-	static void ClearScreen()
-	{
-		for(int i = 0; i < 1024; i++)
-		{
-		    System.out.println("\b");
-		}
+		System.out.printf("You%s win!%n", (win ? "" : " didn't"));
+		System.out.printf("The word was %s%n", word);
+		System.out.println("--------------------");
 	}
 }
