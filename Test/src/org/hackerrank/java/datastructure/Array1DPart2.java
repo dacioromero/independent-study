@@ -1,6 +1,8 @@
 package org.hackerrank.java.datastructure;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Array1DPart2
 {
@@ -24,20 +26,67 @@ public class Array1DPart2
 		
 		scanner.close();
 		
+		Pattern zeroPattern = Pattern.compile("0+");
+		
 		for(int i = 0; i < sequences.length; i++)
 		{
-			int currentIndex = 0;
-			int currentStart = 0;
-			boolean solveable = false;
+			StringBuilder sequenceBuilder = new StringBuilder();
 			
-			while(!solveable)
+			for(int j = 0; j < sequences[i].length; j++)
 			{
-				if(sequences[i][currentIndex + jumps[i]] == 0)
+				sequenceBuilder.append(sequences[i][j]);
+			}
+			
+			String sequence = sequenceBuilder.toString();
+			
+			Matcher zeroMatcher = zeroPattern.matcher(sequence);
+			
+			int currentIndex = 0;
+			
+			while(zeroMatcher.find(currentIndex))
+			{
+				for(currentIndex = zeroMatcher.end() - 1; !IndexBlocked(sequence, currentIndex) && !IndexBlocked(sequence, currentIndex + jumps[i]); currentIndex--);
+				
+				if(IndexBlocked(sequence, currentIndex))
+				{
+					break;
+				}
+				
+				else
 				{
 					currentIndex += jumps[i];
-					
+				}
+				
+				if(currentIndex >= sequence.length()) 
+				{
+					break;
 				}
 			}
+			
+			System.out.println(currentIndex >= sequence.length() ? "YES" : "NO");
 		}
     }
+	
+	static boolean IndexBlocked(String sequence, int index)
+	{
+		if(index < 0)
+		{
+			return true;
+		}
+		
+		else if(index >= sequence.length())
+		{
+			return false;
+		}
+		
+		else if(sequence.charAt(index) == 1)
+		{
+			return true;
+		}
+		
+		else
+		{
+			return false;
+		}
+	}
 }
