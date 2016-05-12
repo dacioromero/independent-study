@@ -26,67 +26,40 @@ public class Array1DPart2
 		
 		scanner.close();
 		
-		Pattern zeroPattern = Pattern.compile("0+");
-		
 		for(int i = 0; i < sequences.length; i++)
 		{
-			StringBuilder sequenceBuilder = new StringBuilder();
+			int sum = 0;
 			
 			for(int j = 0; j < sequences[i].length; j++)
 			{
-				sequenceBuilder.append(sequences[i][j]);
+				sum += sequences[i][j];
 			}
 			
-			String sequence = sequenceBuilder.toString();
+			boolean solveable = sum == 0;
 			
-			Matcher zeroMatcher = zeroPattern.matcher(sequence);
-			
-			int currentIndex = 0;
-			
-			while(zeroMatcher.find(currentIndex))
+			if(!solveable)
 			{
-				for(currentIndex = zeroMatcher.end() - 1; !IndexBlocked(sequence, currentIndex) && !IndexBlocked(sequence, currentIndex + jumps[i]); currentIndex--);
+				int index = 0;
 				
-				if(IndexBlocked(sequence, currentIndex))
+				while(!solveable)
 				{
-					break;
-				}
-				
-				else
-				{
-					currentIndex += jumps[i];
-				}
-				
-				if(currentIndex >= sequence.length()) 
-				{
-					break;
+					
 				}
 			}
 			
-			System.out.println(currentIndex >= sequence.length() ? "YES" : "NO");
+			System.out.println(solveable ? "YES" : "NO");
 		}
-    }
+	}
 	
-	static boolean IndexBlocked(String sequence, int index)
+	int IntArraySum(int[] array; int startIndex)
 	{
-		if(index < 0)
+		int sum = 0;
+		
+		for(int i = startIndex; i < array.length; i++)
 		{
-			return true;
+			sum += array[i];
 		}
 		
-		else if(index >= sequence.length())
-		{
-			return false;
-		}
-		
-		else if(sequence.charAt(index) == 1)
-		{
-			return true;
-		}
-		
-		else
-		{
-			return false;
-		}
+		return sum;
 	}
 }
