@@ -1,8 +1,6 @@
 package org.hackerrank.java.datastructure;
 
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Array1DPart2
 {
@@ -28,38 +26,34 @@ public class Array1DPart2
 		
 		for(int i = 0; i < sequences.length; i++)
 		{
-			int sum = 0;
-			
-			for(int j = 0; j < sequences[i].length; j++)
-			{
-				sum += sequences[i][j];
-			}
-			
-			boolean solveable = sum == 0;
-			
-			if(!solveable)
-			{
-				int index = 0;
-				
-				while(!solveable)
-				{
-					
-				}
-			}
-			
-			System.out.println(solveable ? "YES" : "NO");
+			System.out.println(sequenceSolveable(sequences[i], jumps[i]) ? "YES" : "NO");
 		}
 	}
 	
-	int IntArraySum(int[] array; int startIndex)
+	static boolean sequenceSolveable(int[] sequence, int jump)
 	{
-		int sum = 0;
-		
-		for(int i = startIndex; i < array.length; i++)
+		return indexSolveable(sequence, jump, 0);
+	}
+	
+	static boolean indexSolveable(int[] sequence, int jump, int i)
+	{
+		if(i < 0)
 		{
-			sum += array[i];
+			return false;
 		}
 		
-		return sum;
+		else if(i >= sequence.length)
+		{
+			return true;
+		}
+		
+		else if(sequence[i] == 1)
+		{
+			return false;
+		}
+		
+		sequence[i] = 1;
+		
+		return indexSolveable(sequence, jump, i + 1) || indexSolveable(sequence, jump, i - 1) || indexSolveable(sequence, jump, i + jump);
 	}
 }
