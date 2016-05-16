@@ -37,23 +37,21 @@ public class Array1DPart2
 	
 	static boolean indexSolveable(int[] sequence, int jump, int i)
 	{
-		if(i < 0)
-		{
-			return false;
-		}
-		
-		else if(i >= sequence.length)
+		if(i >= sequence.length)
 		{
 			return true;
 		}
 		
-		else if(sequence[i] == 1)
+		else if(i < 0 || sequence[i] == 1)
 		{
 			return false;
 		}
 		
-		sequence[i] = 1;
-		
-		return indexSolveable(sequence, jump, i + 1) || indexSolveable(sequence, jump, i - 1) || indexSolveable(sequence, jump, i + jump);
+		else
+		{
+			sequence[i] = 1;
+			
+			return indexSolveable(sequence, jump, i + 1) || indexSolveable(sequence, jump, i - 1) || indexSolveable(sequence, jump, i + jump);
+		}
 	}
 }

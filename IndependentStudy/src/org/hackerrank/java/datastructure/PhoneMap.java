@@ -12,7 +12,7 @@ public class PhoneMap
 		
 		Map<String, String> phonebook = new HashMap<String, String>();
 		
-		for(int i = scanner.nextInt(); i > 0; i--)
+		for(int i = Integer.parseInt(scanner.nextLine()); i > 0; i--)
 		{
 			phonebook.put(scanner.nextLine(), scanner.nextLine());
 		}
