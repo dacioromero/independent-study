@@ -33,7 +33,7 @@ public class StaticInitializerBlock
 		{
 			int area = B * H;
 			
-			System.out.print(area);
+			System.out.println(area);
 		}
 		
 	}

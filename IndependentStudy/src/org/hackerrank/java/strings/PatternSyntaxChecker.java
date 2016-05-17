@@ -10,9 +10,7 @@ public class PatternSyntaxChecker
 	{
 		Scanner scanner = new Scanner(System.in);
 		
-		int testcases = Integer.parseInt(scanner.nextLine());
-		
-		for(int i = 0; i < testcases; i++)
+		for(int i = Integer.parseInt(scanner.nextLine()); i > 0; i--)
 		{
 			try
 			{

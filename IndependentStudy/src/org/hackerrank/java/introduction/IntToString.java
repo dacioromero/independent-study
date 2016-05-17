@@ -12,14 +12,13 @@ public class IntToString {
 		{
 			Scanner scanner = new Scanner(System.in);
 			
-			
-			int n=scanner.nextInt();
+			int number = scanner.nextInt();
 			
 			scanner.close();
 			
-			String s = Integer.toString(n);
+			String string = Integer.toString(number);
 			
-			if(n == Integer.parseInt(s))
+			if(number == Integer.parseInt(string))
 			{
 				System.out.println("Good job");
 			}

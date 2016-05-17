@@ -6,36 +6,43 @@ class Datatypes
 {
 	public static void main(String []args)
     {
-        Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
+        Scanner scanner = new Scanner(System.in);
 
-        for(int i = 0; i < t; i++)
+        for(int i = scanner.nextInt(); i > 0; i--)
         {
             try
             {
-                long x = sc.nextLong();
+                long number = scanner.nextLong();
                 
-                System.out.printf("%d can be fitted in:%n", x);
+                System.out.printf("%d can be fitted in:%n", number);
                 
-                if (x>=Byte.MIN_VALUE && x<=Byte.MAX_VALUE)
+                if (number >= Byte.MIN_VALUE && number <= Byte.MAX_VALUE)
+                {
                 	System.out.println("* byte");
+                }
                 
-                if (x >= Short.MIN_VALUE && x <= Short.MAX_VALUE)
+                if (number >= Short.MIN_VALUE && number <= Short.MAX_VALUE)
+                {
                 	System.out.println("* short");
+                }
                 
-                if (x >= Integer.MIN_VALUE && x <= Integer.MAX_VALUE)
+                if (number >= Integer.MIN_VALUE && number <= Integer.MAX_VALUE)
+                {
                 	System.out.println("* int");
-                
-                if (x >= Long.MIN_VALUE && x <= Long.MAX_VALUE)
+            	}
+            
+                if (number >= Long.MIN_VALUE && number <= Long.MAX_VALUE)
+                {
                 	System.out.println("* long");
+                }
             }
             
             catch(Exception e)
             {
-                System.out.printf("%s can't be fitted anywhere.%n", sc.next());
+                System.out.printf("%s can't be fitted anywhere.%n", scanner.next());
             }
         }
         
-        sc.close();
+        scanner.close();
     }
 }

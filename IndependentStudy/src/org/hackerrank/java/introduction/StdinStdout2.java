@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class StdinStdout2 {
     public static void main(String[] args)
     {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         
-        int x = sc.nextInt();
-        double y = sc.nextDouble();
-        sc.nextLine();
-        String s = sc.nextLine();
+        int x = scanner.nextInt();
+        double y = scanner.nextDouble();
+        scanner.nextLine();
+        String s = scanner.nextLine();
         
-        sc.close();
+        scanner.close();
         
         System.out.println("String: " + s);
         System.out.println("Double: " + y);

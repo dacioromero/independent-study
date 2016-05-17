@@ -7,10 +7,12 @@ public class IfElse
     public static void main(String[] args)
     {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();            
+        
+        int number = sc.nextInt();            
+        
         sc.close();
         
-        boolean weird = n % 2 == 1 || (n >= 2 && n >= 6 && n <= 20);
+        boolean weird = number % 2 == 1 || (number >= 2 && number >= 6 && number <= 20);
         System.out.println((!weird ? "Not " : "") + "Weird");
     }
 }

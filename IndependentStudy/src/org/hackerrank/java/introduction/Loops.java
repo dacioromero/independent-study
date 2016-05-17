@@ -6,15 +6,13 @@ public class Loops
 {
 	public static void main(String[] args)
 	{
-		Scanner sc = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		
-		int t = sc.nextInt();
-		
-		for(int i = 0; i < t; i++)
+		for(int i = scanner.nextInt(); i > 0; i--)
 		{
-			int a = sc.nextInt();
-			int b = sc.nextInt();
-			int n = sc.nextInt();
+			int a = scanner.nextInt();
+			int b = scanner.nextInt();
+			int n = scanner.nextInt();
 			
 			int v = a;
 			
@@ -28,6 +26,6 @@ public class Loops
 			System.out.println();
 		}
 		
-		sc.close();
+		scanner.close();
 	}
 }
