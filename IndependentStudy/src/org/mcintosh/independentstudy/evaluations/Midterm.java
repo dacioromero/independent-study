@@ -107,9 +107,19 @@ public class Midterm
 					System.out.printf("You've already guessed %s%n", guess);
 				}
 				
+				else if(guess.length() >= word.length() && guess.length() <= 0)
+				{
+					System.out.println("Guess must be one character or the same length as the word");
+				}
+				
+				else if(!guess.matches("[A-Za-z]+"))
+				{
+					System.out.println("Guess must be only letters");
+				}
+				
 				else
 				{
-					guessValid = guess.matches("[A-Za-z]+");
+					guessValid = true;
 				}
 			}
 			while(!guessValid);
