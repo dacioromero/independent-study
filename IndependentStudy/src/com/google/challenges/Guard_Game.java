@@ -5,6 +5,12 @@ import java.util.List;
 
 public class Guard_Game
 {
+	public static void main(String[] args)
+	{
+		System.out.println(answer(13));
+		System.out.println(answer(1235));
+	}
+	
     public static int answer(int x)
     {
     	int[] digits = getDigits(x);

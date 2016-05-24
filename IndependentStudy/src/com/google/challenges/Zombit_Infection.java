@@ -29,21 +29,17 @@ public class Zombit_Infection
 	
     public static int[][] answer(int[][] population, int x, int y, int strength)
     {
-    	rabbitInfect(population, x, y, strength);
-        return population;
-    }
-    
-    static void rabbitInfect(int[][] population, int x, int y, int strength)
-    {
     	if(y >= 0 && y < population.length && x >= 0 && x < population[y].length && population[y][x] != -1 && population[y][x] <= strength)
-    	{
-    		population[y][x] = -1;
-    		
-    		for(int i = -1; i <= 1; i++)
-    		{
-    			rabbitInfect(population, x + i, y, strength);
-    			rabbitInfect(population, x, y + i, strength);
-    		}
-    	}
+		{
+			population[y][x] = -1;
+			
+			for(int i = -1; i <= 1; i++)
+			{
+				answer(population, x + i, y, strength);
+				answer(population, x, y + i, strength);
+			}
+		}
+    	
+        return population;
     }
 }
