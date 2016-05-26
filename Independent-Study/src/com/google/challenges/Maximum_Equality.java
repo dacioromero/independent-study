@@ -10,6 +10,18 @@ public class Maximum_Equality
 	
     public static int answer(int[] x)
     { 
-    	return 0;
+    	return sumIntArray(x) % x.length == 0 ? x.length : x.length - 1;
+    }
+    
+    static int sumIntArray(int[] array)
+    {
+    	int sum = 0;
+    	
+    	for(int i = 0; i < array.length; i++)
+    	{
+    		sum += array[i];
+    	}
+    	
+    	return sum;
     }
 }
