@@ -1,30 +1,23 @@
 package com.hackerrank.java.oop;
 
-class Animal
-{
-	void walk()
-	{
+class Animal {
+	void walk() {
 		System.out.println("I am walking");
 	}
 }
 
-class Bird extends Animal
-{
-	void fly()
-	{
+class Bird extends Animal {
+	void fly() {
 		System.out.println("I am flying");
 	}
 
-	void sing()
-	{
+	void sing() {
 		System.out.println("I am singing");
 	}
 }
 
-public class Inheritance1
-{
-	public static void main(String args[])
-	{
+public class Inheritance1 {
+	public static void main(String args[]) {
 		Bird bird = new Bird();
 		bird.walk();
 		bird.fly();

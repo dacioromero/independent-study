@@ -5,26 +5,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class Student{}
+class Student {
+}
 
-public class ReflectionAttributes
-{
-	public static void main(String[] args)
-	{
-        Class student = Student.class;
-        Method[] methods = student.getDeclaredMethods();
+public class ReflectionAttributes {
+	public static void main(String[] args) {
+		Class student = Student.class;
+		Method[] methods = student.getDeclaredMethods();
 
-        List<String> methodList = new ArrayList<String>();
-        for(Method method : methods)
-        {
-            methodList.add(method.getName());
-        }
-        
-        Collections.sort(methodList);
-        
-        for(String name: methodList)
-        {
-            System.out.println(name);
-        }
-    }
+		List<String> methodList = new ArrayList<String>();
+		for (Method method : methods) {
+			methodList.add(method.getName());
+		}
+
+		Collections.sort(methodList);
+
+		for (String name : methodList) {
+			System.out.println(name);
+		}
+	}
 }

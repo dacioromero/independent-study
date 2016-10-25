@@ -5,71 +5,59 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-class Student implements Comparable<Student>
-{
+class Student implements Comparable<Student> {
 	private int id;
 	private String fname;
 	private double cgpa;
 
-	public Student(int id, String fname, double cgpa)
-	{
+	public Student(int id, String fname, double cgpa) {
 		super();
 		this.id = id;
 		this.fname = fname;
 		this.cgpa = cgpa;
 	}
 
-	public int getId()
-	{
+	public int getId() {
 		return id;
 	}
 
-	public String getFname()
-	{
+	public String getFname() {
 		return fname;
 	}
 
-	public double getCgpa()
-	{
+	public double getCgpa() {
 		return cgpa;
 	}
 
 	@Override
-	public int compareTo(Student a)
-	{
+	public int compareTo(Student a) {
 		int cpgaOrder = -Double.compare(this.cgpa, a.getCgpa());
 
-		if(cpgaOrder != 0)
-		{
+		if (cpgaOrder != 0) {
 			return cpgaOrder;
 		}
 
 		else {
 			int nameOrder = this.fname.compareTo(a.getFname());
 
-			if(nameOrder != 0)
-			{
+			if (nameOrder != 0) {
 				return nameOrder;
 			}
 
-			else
-			{
+			else {
 				return Integer.compare(this.id, a.getId());
 			}
 		}
 	}
 }
 
-public class Sort
-{
-	public static void main(String[] args)
-	{
+public class Sort {
+	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
 		List<Student> studentList = new ArrayList<Student>();
-		
-		for(int i = scanner.nextInt(); i > 0; i--)
-		{
+
+		for (int i = scanner.nextInt(); i > 0; i--) {
 			studentList.add(new Student(scanner.nextInt(), scanner.next(), scanner.nextDouble()));
 		}
 
@@ -77,8 +65,7 @@ public class Sort
 
 		Collections.sort(studentList);
 
-		for(Student st : studentList)
-		{
+		for (Student st : studentList) {
 			System.out.println(st.getFname());
 		}
 	}
