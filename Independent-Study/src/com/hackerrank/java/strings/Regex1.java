@@ -2,7 +2,7 @@ package com.hackerrank.java.strings;
 
 import java.util.Scanner;
 
-class IPValidator {
+class Regex1 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 

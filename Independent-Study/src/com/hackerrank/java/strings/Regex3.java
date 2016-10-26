@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UsernameChecker {
+public class Regex3 {
 	public static void main(String[] args) {
 		Pattern pattern = Pattern.compile("^[a-zA-Z]\\w{7,29}$");
 
