@@ -1,4 +1,4 @@
-package com.hackerrank.java.datastructure;
+package com.hackerrank.java.datastructures;
 
 class Printer {
 	public void printArray(Object[] array) {

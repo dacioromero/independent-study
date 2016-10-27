@@ -1,4 +1,4 @@
-package com.hackerrank.java.datastructure;
+package com.hackerrank.java.datastructures;
 
 import java.util.ArrayList;
 import java.util.Collections;
