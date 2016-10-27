@@ -2,7 +2,7 @@ package com.hackerrank.java.strings;
 
 import java.util.Scanner;
 
-public class StringsIntroduction {
+public class Introduction {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 

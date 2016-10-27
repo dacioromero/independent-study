@@ -2,7 +2,7 @@ package com.hackerrank.java.strings;
 
 import java.util.Scanner;
 
-public class StringReverse {
+public class Reverse {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
