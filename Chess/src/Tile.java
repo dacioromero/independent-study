@@ -1,0 +1,23 @@
+public class Tile {
+	private ChessPiece chessPiece;
+	
+	public Tile(ChessPiece chessPiece) {
+		this.chessPiece = chessPiece;
+	}
+	
+	public Tile() {
+		this.chessPiece = null;
+	}
+	
+	public boolean hasChessPiece() {
+		return chessPiece != null;
+	}
+	
+	public ChessPiece getChessPiece() {
+		return chessPiece;
+	}
+	
+	public void setChessPiece(ChessPiece chessPiece) {
+		this.chessPiece = chessPiece;
+	}
+}
