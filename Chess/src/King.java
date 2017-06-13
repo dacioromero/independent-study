@@ -1,9 +1,9 @@
 public class King extends ChessPiece {
-	public King(int color) {
-		super(color);
+	public King(int team) {
+		super(team);
 	}
 	
 	public String getSymbol() {
-		return (getColor() == 0 ? "W" : "B") + "K";
+		return (getTeam() == 0 ? "W" : "B") + "K";
 	}
 }

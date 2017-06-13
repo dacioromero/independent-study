@@ -1,9 +1,9 @@
 public class Bishop extends ChessPiece {
-	public Bishop(int color) {
-		super(color);
+	public Bishop(int team) {
+		super(team);
 	}
 	
 	public String getSymbol() {
-		return (getColor() == 0 ? "W" : "B") + "B";
+		return (getTeam() == 0 ? "W" : "B") + "B";
 	}
 }

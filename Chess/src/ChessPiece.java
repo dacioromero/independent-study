@@ -2,17 +2,17 @@ public abstract class ChessPiece {
 	public static int WHITE = 0;
 	public static int BLACK = 1;
 	
-	private int color;
+	private int team;
 	
-	public ChessPiece(int color) {
-		this.color = color;
+	public ChessPiece(int team) {
+		this.team = team;
 	}
 	
-	public int getColor() {
-		return color;
+	public int getTeam() {
+		return team;
 	}
 	
 	public String getSymbol() {
-		return "ER";
+		return "N/A";
 	}
 }

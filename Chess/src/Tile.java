@@ -1,10 +1,6 @@
 public class Tile {
 	private ChessPiece chessPiece;
 	
-	public Tile(ChessPiece chessPiece) {
-		this.chessPiece = chessPiece;
-	}
-	
 	public Tile() {
 		this.chessPiece = null;
 	}
