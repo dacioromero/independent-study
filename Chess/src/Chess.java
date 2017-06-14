@@ -1,6 +1,6 @@
 public class Chess {
 	public static void main(String[] args) {
-		Board board = new Board();
+		ChessBoard board = new ChessBoard();
 		board.printBoard();
 	}
 }

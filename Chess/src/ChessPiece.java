@@ -12,7 +12,7 @@ public abstract class ChessPiece {
 		return team;
 	}
 	
-	public String getSymbol() {
-		return "N/A";
-	}
+	public abstract String getSymbol();
+	
+	public abstract boolean moveAllowed(int rank, int file);
 }

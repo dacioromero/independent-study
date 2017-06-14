@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class Board {
+public class ChessBoard {
 	private Tile[][] tiles;
 	private ArrayList<ChessPiece> benchedChessPieces;
 	
-	public Board() {
+	public ChessBoard() {
 		tiles = new Tile[8][8];
 		benchedChessPieces = new ArrayList<ChessPiece>();
 		
@@ -61,19 +61,13 @@ public class Board {
 			
 			else {
 				benchedChessPieces.add(tiles[rank2][file2].getChessPiece());
-				tiles[rank2][file2].setChessPiece(tiles[rank1][file1].getChessPiece());
-				tiles[rank1][file2].setChessPiece(null);
-				
-				return true;
 			}
 		}
 		
-		else {
-			tiles[rank2][file2].setChessPiece(tiles[rank1][file1].getChessPiece());
-			tiles[rank1][file1].setChessPiece(null);
-			
-			return true;
-		}
+		tiles[rank2][file2].setChessPiece(tiles[rank1][file1].getChessPiece());
+		tiles[rank1][file1].setChessPiece(null);
+		
+		return true;
 	}
 
 	public void printBoard() {
@@ -95,7 +89,7 @@ public class Board {
 				}
 			}
 			
-			System.out.println();
+			System.out.println(" " + (i + 1));
 		}
 		
 		for(int i = 0; i < tiles[0].length; i++) {
