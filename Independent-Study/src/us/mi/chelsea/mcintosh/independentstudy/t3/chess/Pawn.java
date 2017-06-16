@@ -1,3 +1,5 @@
+package us.mi.chelsea.mcintosh.independentstudy.t3.chess;
+
 public class Pawn extends ChessPiece {
 	public Pawn(int team) {
 		super(team);
@@ -7,7 +9,7 @@ public class Pawn extends ChessPiece {
 		return (getTeam() == ChessPiece.WHITE ? "W" : "B") + "P";
 	}
 
-	public boolean moveAllowed(int rank, int file) {
+	public boolean validMove(int rank, int file) {
 		if(getTeam() == ChessPiece.WHITE) {
 			return file == 0 && rank == 1;
 		}

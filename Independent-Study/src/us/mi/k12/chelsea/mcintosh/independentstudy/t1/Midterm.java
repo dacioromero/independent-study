@@ -1,4 +1,4 @@
-package us.mi.k12.chelsea.mcintosh.independentstudy.evaluations;
+package us.mi.k12.chelsea.mcintosh.independentstudy.t1;
 
 import java.util.ArrayList;
 import java.util.Scanner;

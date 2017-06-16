@@ -1,3 +1,5 @@
+package us.mi.chelsea.mcintosh.independentstudy.t3.chess;
+
 public abstract class ChessPiece {
 	public static int WHITE = 0;
 	public static int BLACK = 1;
@@ -14,5 +16,5 @@ public abstract class ChessPiece {
 	
 	public abstract String getSymbol();
 	
-	public abstract boolean moveAllowed(int rank, int file);
+	public abstract boolean validMove(int rank, int file);
 }

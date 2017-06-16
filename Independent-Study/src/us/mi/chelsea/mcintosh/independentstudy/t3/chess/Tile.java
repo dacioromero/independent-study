@@ -1,3 +1,5 @@
+package us.mi.chelsea.mcintosh.independentstudy.t3.chess;
+
 public class Tile {
 	private ChessPiece chessPiece;
 	

@@ -1,3 +1,5 @@
+package us.mi.chelsea.mcintosh.independentstudy.t3.chess;
+
 import java.util.ArrayList;
 
 public class ChessBoard {
@@ -14,14 +16,14 @@ public class ChessBoard {
 			}
 		}
 		
-		tiles[0][0].setChessPiece(new Rook(ChessPiece.WHITE));
+		tiles[0][0].setChessPiece(new   Rook(ChessPiece.WHITE));
 		tiles[0][1].setChessPiece(new Knight(ChessPiece.WHITE));
 		tiles[0][2].setChessPiece(new Bishop(ChessPiece.WHITE));
-		tiles[0][3].setChessPiece(new Queen(ChessPiece.WHITE));
-		tiles[0][4].setChessPiece(new King(ChessPiece.WHITE));
+		tiles[0][3].setChessPiece(new  Queen(ChessPiece.WHITE));
+		tiles[0][4].setChessPiece(new   King(ChessPiece.WHITE));
 		tiles[0][5].setChessPiece(new Bishop(ChessPiece.WHITE));
 		tiles[0][6].setChessPiece(new Knight(ChessPiece.WHITE));
-		tiles[0][7].setChessPiece(new Rook(ChessPiece.WHITE));
+		tiles[0][7].setChessPiece(new   Rook(ChessPiece.WHITE));
 		
 		for(int i = 0; i < tiles[1].length; i++) {
 			tiles[1][i].setChessPiece(new Pawn(ChessPiece.WHITE));
@@ -31,26 +33,25 @@ public class ChessBoard {
 			tiles[6][i].setChessPiece(new Pawn(ChessPiece.BLACK));
 		}
 		
-		tiles[7][0].setChessPiece(new Rook(ChessPiece.BLACK));
+		tiles[7][0].setChessPiece(new   Rook(ChessPiece.BLACK));
 		tiles[7][1].setChessPiece(new Knight(ChessPiece.BLACK));
 		tiles[7][2].setChessPiece(new Bishop(ChessPiece.BLACK));
-		tiles[7][3].setChessPiece(new Queen(ChessPiece.BLACK));
-		tiles[7][4].setChessPiece(new King(ChessPiece.BLACK));
+		tiles[7][3].setChessPiece(new  Queen(ChessPiece.BLACK));
+		tiles[7][4].setChessPiece(new   King(ChessPiece.BLACK));
 		tiles[7][5].setChessPiece(new Bishop(ChessPiece.BLACK));
 		tiles[7][6].setChessPiece(new Knight(ChessPiece.BLACK));
-		tiles[7][7].setChessPiece(new Rook(ChessPiece.BLACK));
+		tiles[7][7].setChessPiece(new   Rook(ChessPiece.BLACK));
 	}
 	
-	public boolean moveChessPiece(int rank1, int file1, int rank2, int file2)
+	public boolean moveChessPiece(Coordinate from, Coordinate to)
 	{
-		if((0 >= rank1 && rank1 > 7) ||
-		   (0 >= file1 && file1 > 7) ||
-		   (0 >= rank2 && rank2 > 7) ||
-		   (0 >= file2 && file2 > 7)) {
+		int file1 = from.getIntFile(), rank1 = from.getIntRank(), file2 = to.getIntFile(), rank2 = to.getIntRank();
+		
+		if(!tiles[rank1][file1].hasChessPiece()) {
 			return false;
 		}
 		
-		else if(!tiles[rank1][file1].hasChessPiece()) {
+		else if(!tiles[rank1][file1].getChessPiece().validMove(rank2 - rank1, file2 - file1)) {
 			return false;
 		}
 		
